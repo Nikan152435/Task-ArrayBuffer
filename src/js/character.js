@@ -29,7 +29,16 @@ export default class Character {
     get baseAttack() {
       return this.baseAttackPower;
     }
-  
+  // Добавление сеттера для атаки
+  set attack(newAttack) {
+    
+    if (typeof newAttack === 'number' && newAttack >= 0) {
+      this.baseAttackPower = newAttack;
+    } else {
+      console.error('Invalid attack value. Attack must be a non-negative number.');
+    }
+  }
+
     get attack() {
       if (Number.isNaN(this.attackDistance)) {
         return NaN;
